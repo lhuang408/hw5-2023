@@ -1,3 +1,4 @@
+/* animated log with keyframes */
 #logo{
     animation: logo 5s ;
 }
@@ -12,27 +13,32 @@
     }
 }
 
+/* body element uses Poppins font with serif as a back up with background-image */
 body{
     font-family: 'Poppins', serif; 
     background-image: url('../images/concrete_seamless.png');
     background-color: #f1f1f1;
 }
 
+/* header items are centered and stacked */
 header{
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
+/* nav links are stacked */
 .nav_links{
     display: flex;
     flex-direction: column;
 }
 
+/* links have same color even after they have been visited */
 nav a:visited{
     color: blue; 
 }
 
+/* styles elements that are direction children of a card class */
 .card > header{
     background: #288088;
     border: solid 2px #45ADAD;
@@ -40,6 +46,7 @@ nav a:visited{
     border-radius: 50px 50px 0px 0px;
 }
 
+/* curves the top right and left corners */
 .card{
     border-radius: 50px 50px 0px 0px;
 }
@@ -53,47 +60,54 @@ nav a:visited{
 .pricing{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
+/* styles images in the gallery class */
 .gallery img{
     border: solid 10px #50C7C7;
     margin: 10px;
     width: 300px;
 }
 
+/* modifies gallery class to use flex */
 .gallery{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 @media screen and (min-width: 900px){
+    /* modifies header tag to use flex */
     header{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
+    /* modifies nav_links class to use flex */
     .nav_links{
         display: flex;
         flex-direction: row;
     } 
 
+    /* modifies pricing class to use flex */
     .pricing{
         display: flex;
         flex-direction: row;
         justify-content: center;
     }
 
+    /* modifies card class to use flex */
     .card{
         display: flex;
         flex-basis: 275px;
     }
 
+    /* ensures first header is visible at the top of the screen even as we scroll down */
     body > :nth-child(2) {
         top: 0;
         position: sticky;
@@ -102,17 +116,20 @@ nav a:visited{
 }
 
 @media (prefers-reduced-motion: reduce) {
+    /* makes the logo class not be animated */
     #logo{
         animation: none;
     }
 }
 
-@media print { 
+@media print {
+    /* changes the font and removes the background image */
     body{
         font-family: Arial, Helvetica;
         background-image: none;
     }
 
+    /* uses flex properties to space the nav/nav_links elements */
     .nav_links{
         display: flex;
         flex-direction: row;
@@ -123,22 +140,26 @@ nav a:visited{
         width: 100%;
     }
 
+    /* uses flex to align elements along the bottom */
     .pricing{
         display: flex;
         flex-wrap: nowrap; 
         align-items: flex-end;
     }
 
+    /* styles card elements */
     .card{
         border: 2px solid #45ADDD;
         display: flex;
         flex-basis: 325px;
     }
 
+    /* makes the gallery invisible */
     #gallery, .gallery {
         display: none;
     }
    
+    /* adds thumbs up entity as shown in the cards */
     .card li:nth-child(2)::after{
         content: "👍";
     }
